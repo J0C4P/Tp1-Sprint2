@@ -1,5 +1,3 @@
-// Catálogo base de "Mi Watchlist" — 20 videojuegos de distintas épocas (1980-2022).
-// Cada item respeta la forma que ya tenías: { id, name, console, year, image, rating }.
 export const items = [
   { id: 1,  name: "Pac-Man",                          console: "Arcade",             year: 1980, image: "/images/pac-man.jpg",           rating: 8.0 },
   { id: 2,  name: "Tetris",                            console: "Game Boy",           year: 1984, image: "/images/tetris.jpg",             rating: 9.0 },

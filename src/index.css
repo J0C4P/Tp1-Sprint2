@@ -1,1 +1,121 @@
 @import "tailwindcss";
+
+/* Paleta simple, mismo criterio que Sprint 1 (@theme + tokens con nombre).
+   Es un estilo de DESARROLLO, para distinguir secciones a simple vista —
+   no está pensado como entrega final. */
+@theme {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-border: #334155;
+  --color-card-bg: #ffffff;
+  --color-card-border: #cbd5e1;
+  --color-text: #0f172a;
+  --color-text-light: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-button-bg: #2563eb;
+  --color-button-bg-hover: #1d4ed8;
+  --color-button-text: #f8fafc;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-light);
+  font-family: system-ui, sans-serif;
+}
+
+/* Header: franja superior, distinta del fondo general */
+header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-surface-border);
+  padding: 1rem 1.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Nav: franja debajo del header, mismo tono pero separada */
+nav {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-surface-border);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+nav input {
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-surface-border);
+}
+
+/* Section: el contenedor del catálogo completo */
+section {
+  padding: 1.5rem;
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+/* La grilla de cards dentro del catálogo */
+section > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Article: cada card individual, con fondo claro para que resalte del fondo oscuro */
+article {
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-card-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+article h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+article p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+article img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  background-color: var(--color-surface-border); /* placeholder visible mientras no haya imágenes reales */
+}
+
+button {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-button-bg-hover);
+}
+
+/* Footer: franja inferior, mismo tono que header/nav */
+footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-surface-border);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}

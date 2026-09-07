@@ -1,19 +1,16 @@
-import Tests from './components/Tests'
-import Tests2 from './components/Tests2'
-import Tests3 from './components/Tests3'
+import CatalogList from "./components/Catalog/CatalogList"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import Navbar from "./components/NavBar/Nav"
 
 function App() {
   return (
-    <>
-    First Tests:
-    <Tests />
-    <br />
-    Second Tests:
-    <Tests2 />
-    <br />
-    Third Tests:
-    <Tests3></Tests3>
-    </>
+  <>  
+    <Header></Header>
+    <Navbar></Navbar>
+    <CatalogList></CatalogList>
+    <Footer></Footer>
+  </>
   )
 }
 
