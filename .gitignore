@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Archivos de Practica
+Tests.jsx
+Tests2.jsx
+Tests3.jsx
