@@ -84,6 +84,15 @@ article h3 {
   font-size: 1rem;
 }
 
+article span {
+  align-self: flex-start;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
 article p {
   margin: 0;
   font-size: 0.85rem;

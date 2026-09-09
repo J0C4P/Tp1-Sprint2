@@ -20,14 +20,16 @@ function App() {
   <>
     <Header></Header>
     <Navbar busqueda={busqueda} setBusqueda={setBusqueda} cantidad={cantidad} togglePanel={togglePanel}></Navbar>
-    <CatalogList
-      estaEnLista={estaEnLista}
-      onToggle={toggleItem}
-      busqueda={busqueda}
-    ></CatalogList>
-    {panelAbierto && (
-      <ListPanel miLista={miLista} quitar={quitar} vaciar={vaciar} cerrar={togglePanel}></ListPanel>
-    )}
+    <main>
+      <CatalogList
+        estaEnLista={estaEnLista}
+        onToggle={toggleItem}
+        busqueda={busqueda}
+      ></CatalogList>
+      {panelAbierto && (
+        <ListPanel miLista={miLista} quitar={quitar} vaciar={vaciar} cerrar={togglePanel}></ListPanel>
+      )}
+    </main>
     <Footer></Footer>
   </>
   )
