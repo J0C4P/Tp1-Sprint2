@@ -15,5 +15,7 @@ export function useMyList() {
 
   const cantidad = miLista.length
 
-  return { estaEnLista, toggleItem, cantidad }
+  const vaciar = () => setMiLista([])
+
+  return { estaEnLista, toggleItem, cantidad, vaciar }
 }

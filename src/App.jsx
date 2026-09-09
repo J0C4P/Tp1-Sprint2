@@ -7,7 +7,7 @@ import Header from "./components/Header"
 import Navbar from "./components/NavBar/Nav"
 
 function App() {
-  const { estaEnLista, toggleItem, cantidad } = useMyList()
+  const { estaEnLista, toggleItem, cantidad, vaciar } = useMyList()
   const [busqueda, setBusqueda] = useState("")
   const [onMylist, setOnMylist] = useLocalStorage("watchlist:enMiLista", false)
 
@@ -32,7 +32,7 @@ function App() {
   return (
   <>
     <Header></Header>
-    <Navbar busqueda={busqueda} setBusqueda={setBusqueda} onMylist={onMylist} setOnMylist={setOnMylist} cantidad={cantidad}></Navbar>
+    <Navbar busqueda={busqueda} setBusqueda={setBusqueda} onMylist={onMylist} setOnMylist={setOnMylist} cantidad={cantidad} vaciar={vaciar}></Navbar>
     <CatalogList
       estaEnLista={estaEnLista}
       onToggle={toggleItem}
