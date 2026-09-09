@@ -23,7 +23,8 @@ Antes de `useLocalStorage`/`useMyList`, `App.jsx` tenía la lectura+escritura de
 El panel (`ListPanel.jsx`) escucha `Escape` con su propio `useEffect` (con cleanup en el `return`). Vive ahí y no en `App.jsx` porque el listener solo tiene sentido mientras el panel está montado — si viviera en `App`, escucharía todo el tiempo, incluso con el panel cerrado.
 
 ## Uso de IA
-Usé Claude Code durante toda la implementación: para planificar el orden en que armar las features, revisar código propio, explicar por qué cada patrón de React funciona como funciona, y para el refactor a custom hooks. Las decisiones (qué approach tomar, cuándo separar algo en un hook) las tomé yo, guiado por esas explicaciones.
+Usé Claude Code y ChatGPT (Según me quedaba sin créditos) durante toda la implementación: primero que nada para revisar y aprender los nuevos conceptos, y luego para planificar el orden en que armar las features, revisar código propio, entender bien los patrones de React, como funcionan, y planear los custom hooks. Las decisiones las tomé yo, guiado por esas explicaciones.
+El trabajo de Front End lo hize como el TP pasado con design de IA implementado con Kiro usando tailwind.
 
 ## Lo que me costó
 Los custom hooks fueron lo que más me costó entender — por eso los dejé para el final, prefería ver el estado y los efectos funcionando directo en los componentes antes de abstraerlos a un hook.
