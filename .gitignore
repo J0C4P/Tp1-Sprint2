@@ -24,7 +24,6 @@ dist-ssr
 *.sw?
 
 # Archivos de Practica
-docs/
 Tests.jsx
 Tests2.jsx
 Tests3.jsx

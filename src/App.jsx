@@ -1,41 +1,15 @@
 import { useState, useEffect } from "react"
+import { useLocalStorage } from "./hooks/useLocalStorage"
+import { useMyList } from "./hooks/useMyList"
 import CatalogList from "./components/Catalog/CatalogList"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Navbar from "./components/NavBar/Nav"
 
 function App() {
-  const [miLista, setMiLista] = useState(() => {
-    try {
-      const guardado = localStorage.getItem("watchlist:miLista")
-      return guardado ? JSON.parse(guardado) : []
-    } catch (error) {
-      console.warn("Datos corruptos en localStorage, se reinicia la lista.", error)
-      return []
-    }
-  })
+  const { estaEnLista, toggleItem, cantidad } = useMyList()
   const [busqueda, setBusqueda] = useState("")
-  const [onMylist, setOnMylist] = useState(() => {
-    try {
-      const guardado = localStorage.getItem("watchlist:enMiLista")
-      return guardado ? JSON.parse(guardado) : false
-    } catch (error) {
-      console.warn("Datos corruptos en localStorage.", error)
-      return false
-    }
-  })
-
-  const estaEnLista = (id) => miLista.some((i) => i.id === id)
-
-  const cantidad = miLista.length
-
-  useEffect(() => {
-    localStorage.setItem("watchlist:miLista", JSON.stringify(miLista))
-  }, [miLista])
-
-  useEffect(() => {
-    localStorage.setItem("watchlist:enMiLista", JSON.stringify(onMylist))
-  }, [onMylist])
+  const [onMylist, setOnMylist] = useLocalStorage("watchlist:enMiLista", false)
 
   useEffect(() => {
     document.title = `Mi Watchlist (${cantidad})`
@@ -54,14 +28,6 @@ function App() {
       document.removeEventListener("keydown", handleKeyDown)
     }
   }, [])
-
-  const toggleItem = (item) => {
-    setMiLista((prev) =>
-      prev.some((i) => i.id === item.id)
-        ? prev.filter((i) => i.id !== item.id)
-        : [...prev, item]
-    )
-  }
 
   return (
   <>
