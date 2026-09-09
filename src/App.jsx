@@ -15,6 +15,15 @@ function App() {
     }
   })
   const [busqueda, setBusqueda] = useState("")
+  const [onMylist, setOnMylist] = useState(() => {
+    try {
+      const guardado = localStorage.getItem("watchlist:enMiLista")
+      return guardado ? JSON.parse(guardado) : false
+    } catch (error) {
+      console.warn("Datos corruptos en localStorage.", error)
+      return false
+    }
+  })
 
   const estaEnLista = (id) => miLista.some((i) => i.id === id)
 
@@ -25,8 +34,26 @@ function App() {
   }, [miLista])
 
   useEffect(() => {
+    localStorage.setItem("watchlist:enMiLista", JSON.stringify(onMylist))
+  }, [onMylist])
+
+  useEffect(() => {
     document.title = `Mi Watchlist (${cantidad})`
   }, [cantidad])
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setOnMylist(false)
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
 
   const toggleItem = (item) => {
     setMiLista((prev) =>
@@ -39,11 +66,12 @@ function App() {
   return (
   <>
     <Header></Header>
-    <Navbar busqueda={busqueda} setBusqueda={setBusqueda} cantidad={cantidad}></Navbar>
+    <Navbar busqueda={busqueda} setBusqueda={setBusqueda} onMylist={onMylist} setOnMylist={setOnMylist} cantidad={cantidad}></Navbar>
     <CatalogList
       estaEnLista={estaEnLista}
       onToggle={toggleItem}
       busqueda={busqueda}
+      onMylist={onMylist}
     ></CatalogList>
     <Footer></Footer>
   </>

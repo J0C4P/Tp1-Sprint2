@@ -1,7 +1,9 @@
-const MyList = ({ cantidad }) => {
+const MyList = ({ cantidad, onMylist, setOnMylist }) => {
   return (
     <div>
-      <h2>My List: {cantidad}</h2>
+      <button type="button" onClick={() => setOnMylist(prev =>!prev)}>
+        {onMylist ? "Ver Catalogo" : "Ver Mi Lista (" + cantidad + ")"}
+      </button>
     </div>
   )
 }
