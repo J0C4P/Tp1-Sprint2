@@ -4,7 +4,6 @@ import { useToggle } from "./hooks/useToggle"
 import CatalogList from "./components/Catalog/CatalogList"
 import ListPanel from "./components/ListPanel"
 import Footer from "./components/Footer"
-import Header from "./components/Header"
 import Navbar from "./components/NavBar/Nav"
 
 function App() {
@@ -13,12 +12,11 @@ function App() {
   const [panelAbierto, togglePanel] = useToggle(false)
 
   useEffect(() => {
-    document.title = cantidad > 0 ? `Mi Watchlist (${cantidad})` : "Mi Watchlist"
+    document.title = cantidad > 0 ? `Mi GameList (${cantidad})` : "Mi GameList"
   }, [cantidad])
 
   return (
   <>
-    <Header></Header>
     <Navbar busqueda={busqueda} setBusqueda={setBusqueda} cantidad={cantidad} togglePanel={togglePanel}></Navbar>
     <main>
       <CatalogList

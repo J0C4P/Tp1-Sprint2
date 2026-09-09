@@ -1,7 +1,7 @@
 # README
 
 ## Qué es
-Mi Watchlist: un catálogo de videojuegos donde podés buscar, agregar juegos a una lista personal y sacarlos, con un contador y un panel aparte para ver/gestionar esa lista. La lista persiste entre recargas (F5).
+Mi GameList: un catálogo de videojuegos donde podés buscar, agregar juegos a una lista personal y sacarlos, con un contador y un panel aparte para ver/gestionar esa lista. La lista persiste entre recargas (F5).
 
 ## Cómo correrlo
 ```bash

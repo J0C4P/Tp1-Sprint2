@@ -1,169 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Manrope:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* Paleta simple, mismo criterio que Sprint 1 (@theme + tokens con nombre).
-   Es un estilo de DESARROLLO, para distinguir secciones a simple vista —
-   no está pensado como entrega final. */
 @theme {
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-surface-border: #334155;
-  --color-card-bg: #ffffff;
-  --color-card-border: #cbd5e1;
-  --color-text: #0f172a;
-  --color-text-light: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-button-bg: #2563eb;
-  --color-button-bg-hover: #1d4ed8;
-  --color-button-text: #f8fafc;
+  /* Fondo general de la app */
+  --color-bg: #15131a;
+  /* Fondo de tarjetas y superficies elevadas */
+  --color-surface: #1f1c26;
+  /* Inicio del degradé del área de imagen placeholder */
+  --color-surface-image-from: #2a2530;
+  /* Fin del degradé del área de imagen placeholder */
+  --color-surface-image-to: #1a1720;
+  /* Texto principal */
+  --color-fg: #f6f3f7;
+  /* Texto secundario / metadatos */
+  --color-fg-muted: #9691a0;
+  /* Acento lava, rosa */
+  --color-lava-pink: #ff3d71;
+  /* Acento lava, naranja */
+  --color-lava-orange: #ff7a3d;
+
+  --font-archivo: 'Archivo', sans-serif;
+  --font-manrope: 'Manrope', sans-serif;
 }
 
-body {
-  margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text-light);
-  font-family: system-ui, sans-serif;
-}
-
-/* Header: franja superior, distinta del fondo general */
-header {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-surface-border);
-  padding: 1rem 1.5rem;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-/* Nav: franja debajo del header, mismo tono pero separada */
-nav {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-surface-border);
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-nav input {
-  padding: 0.4rem 0.6rem;
-  border-radius: 0.375rem;
-  border: 1px solid var(--color-surface-border);
-}
-
-/* Section: el contenedor del catálogo completo */
-section {
-  padding: 1.5rem;
-}
-
-section h2 {
-  margin-top: 0;
-}
-
-/* La grilla de cards dentro del catálogo */
-section > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-}
-
-/* Article: cada card individual, con fondo claro para que resalte del fondo oscuro */
-article {
-  background-color: var(--color-card-bg);
-  color: var(--color-text);
-  border: 1px solid var(--color-card-border);
-  border-radius: 0.5rem;
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-article h3 {
-  margin: 0;
-  font-size: 1rem;
-}
-
-article span {
-  align-self: flex-start;
-  background-color: var(--color-button-bg);
-  color: var(--color-button-text);
-  font-size: 0.75rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 0.25rem;
-}
-
-article p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-article img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 0.25rem;
-  background-color: var(--color-surface-border); /* placeholder visible mientras no haya imágenes reales */
-}
-
-button {
-  background-color: var(--color-button-bg);
-  color: var(--color-button-text);
-  border: none;
-  border-radius: 0.375rem;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--color-button-bg-hover);
-}
-
-/* ListPanel: "mi lista" como panel flotante sobre el resto de la página */
-aside {
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: min(20rem, calc(100vw - 3rem));
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-surface-border);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
-}
-
-aside > div:first-child {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-aside h2 {
-  margin: 0;
-}
-
-aside ul {
-  list-style: none;
-  margin: 0.75rem 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-aside li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Footer: franja inferior, mismo tono que header/nav */
-footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-surface-border);
-  padding: 1rem 1.5rem;
-  text-align: center;
-  color: var(--color-text-muted);
+@layer base {
+  body {
+    @apply bg-bg font-manrope text-fg;
+  }
 }

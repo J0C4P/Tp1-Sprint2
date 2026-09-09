@@ -1,7 +1,7 @@
 import { useLocalStorage } from "./useLocalStorage"
 
 export function useMyList() {
-  const [miLista, setMiLista] = useLocalStorage("watchlist:miLista", [])
+  const [miLista, setMiLista] = useLocalStorage("migamelist:miLista", [])
 
   const estaEnLista = (id) => miLista.some((i) => i.id === id)
 
