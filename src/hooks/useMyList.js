@@ -13,9 +13,13 @@ export function useMyList() {
     )
   }
 
+  const quitar = (id) => {
+    setMiLista((prev) => prev.filter((i) => i.id !== id))
+  }
+
   const cantidad = miLista.length
 
   const vaciar = () => setMiLista([])
 
-  return { estaEnLista, toggleItem, cantidad, vaciar }
+  return { miLista, estaEnLista, toggleItem, quitar, cantidad, vaciar }
 }

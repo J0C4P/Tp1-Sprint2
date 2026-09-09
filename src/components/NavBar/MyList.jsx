@@ -1,20 +1,8 @@
-const MyList = ({ cantidad, onMylist, setOnMylist, vaciar }) => {
+const MyList = ({ cantidad, togglePanel }) => {
   return (
-    <div>
-      <button type="button" onClick={() => setOnMylist(prev =>!prev)}>
-        {onMylist ? "Ver Catalogo" : "Ver Mi Lista (" + cantidad + ")"}
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          if (window.confirm("¿Seguro que querés vaciar tu lista?")) {
-            vaciar()
-          }
-        }}
-      >
-        Vaciar lista
-      </button>
-    </div>
+    <button type="button" onClick={togglePanel}>
+      Mi Lista{cantidad > 0 ? ` (${cantidad})` : ""}
+    </button>
   )
 }
 

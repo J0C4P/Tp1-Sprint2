@@ -1,11 +1,11 @@
 import MyList from './MyList'
 import SearchBar from './SearchBar'
 
-const Navbar = ({ busqueda, setBusqueda, onMylist, setOnMylist, cantidad, vaciar }) => {
+const Navbar = ({ busqueda, setBusqueda, cantidad, togglePanel }) => {
   return (
     <nav>
       <SearchBar busqueda={busqueda} setBusqueda={setBusqueda}></SearchBar>
-      <MyList cantidad={cantidad} onMylist={onMylist} setOnMylist={setOnMylist} vaciar={vaciar}></MyList>
+      <MyList cantidad={cantidad} togglePanel={togglePanel}></MyList>
     </nav>
   )
 }
