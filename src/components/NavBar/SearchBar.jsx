@@ -1,8 +1,12 @@
-const SearchBar = () => {
+const SearchBar = ({ busqueda, setBusqueda }) => {
   return (
     <div>
-      <input type="text" placeholder="Buscar..." />
-      <button>Buscar</button>
+      <input
+        type="text"
+        placeholder="Buscar..."
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+      />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const CatalogCard = ({ item }) => {
+const CatalogCard = ({ item, enLista, onToggle }) => {
   return (
     <article>
       <h3>{item.name}</h3>
@@ -6,7 +6,9 @@ const CatalogCard = ({ item }) => {
       <p>{item.year}</p>
       <p>Rating: {item.rating}</p>
       <img src={item.image} alt={item.name} />
-      <button type="button">Agregar a mi lista</button>
+      <button type="button" onClick={() => onToggle(item)}>
+        {enLista ? "Quitar de mi lista" : "Agregar a mi lista"}
+      </button>
     </article>
   )
 }
